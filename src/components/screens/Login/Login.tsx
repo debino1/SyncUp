@@ -15,7 +15,6 @@ const Login: React.FC<LoginProps> = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-
   const _onEmailFieldChange = (value: string) => {
     setEmail(value);
   };
@@ -57,7 +56,7 @@ const Login: React.FC<LoginProps> = () => {
             placeholder="Email"
             secureTextEntry={true}
           />
-            <TextField
+          <TextField
             autoFocus
             style={[{backgroundColor: card}, styles.passwordTextField]}
             value={password}
