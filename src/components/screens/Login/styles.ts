@@ -3,37 +3,40 @@ export default StyleSheet.create({
   root: {
     flex: 1,
   },
+  backgroundContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   contentContainer: {
     padding: 15,
   },
+  title: {
+    marginLeft: 10,
+    fontSize: 36,
+  },
+
   formContainer: {
     paddingTop: '20%',
     marginBottom: 30,
   },
-  passwordTextField: {
-    marginTop: 30,
+  inputStyle: {
+    marginTop: 50,
   },
-  modalContainer: {
-    padding: 20,
-  },
-  passwordText: {
-    marginTop: 15,
-    marginBottom: 15,
-  },
-  confirmButtonContainer: {
-    alignItems: 'center',
-    marginTop: 20,
-  },
-  cancelButtonContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-  },
-  avatar: {
-    width: 60,
-    height: 60,
-    marginBottom: 15,
+  inputContainerStyle: {
+    color: 'white',
+    borderBottomWidth: 2,
+    borderColor: 'white',
   },
   forgotPasswordButton: {
-    marginTop: 10,
+    marginLeft: 10,
+  },
+  signInButton: {
+    marginTop: 15,
+  },
+  loginButton: {
+    borderWidth: 3,
+    borderColor: 'white',
+    backgroundColor: 'transparent',
   },
 });

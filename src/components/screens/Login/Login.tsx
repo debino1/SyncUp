@@ -1,17 +1,22 @@
 import * as React from 'react';
-import {SafeAreaView, View, ScrollView, Alert, Image} from 'react-native';
-import {Text, TextField, Button} from '@src/components/elements';
-import useThemeColors from '@src/custom-hooks/useThemeColors';
+import {
+  SafeAreaView,
+  View,
+  ScrollView,
+  Alert,
+  ImageBackground,
+} from 'react-native';
+import {Text, Button} from '@src/components/elements';
 import styles from './styles';
 import AuthContext from '@src/context/auth-context';
 import {useNavigation} from '@react-navigation/native';
+import {Input} from 'react-native-elements';
 
 type LoginProps = {};
 
 const Login: React.FC<LoginProps> = () => {
   const navigation = useNavigation();
   const {signIn} = React.useContext(AuthContext);
-  const {card} = useThemeColors();
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
@@ -23,7 +28,10 @@ const Login: React.FC<LoginProps> = () => {
   };
 
   const _onNextButtonPressed = () => {
-    if (!password) {
+    if (!email) {
+      Alert.alert('Error', 'Please enter your email!');
+      return;
+    } else if (!password) {
       Alert.alert('Error', 'Please enter your password!');
       return;
     }
@@ -34,50 +42,73 @@ const Login: React.FC<LoginProps> = () => {
   };
 
   return (
-    <SafeAreaView style={styles.root}>
-      <ScrollView contentContainerStyle={styles.contentContainer}>
-        <View style={styles.formContainer}>
-          <Image
-            source={require('../../../assets/profile/avatar.png')}
-            style={styles.avatar}
-          />
-          <Text isBold isHeadingTitle>
-            Welcome! Vu Nguyen
-          </Text>
-          <Text isSecondary hasMargin>
-            Please enter your password to use our services
-          </Text>
-          <TextField
-            autoFocus
-            style={[{backgroundColor: card}, styles.passwordTextField]}
-            value={email}
-            onChangeText={_onEmailFieldChange}
-            hasMargin
-            placeholder="Email"
-            secureTextEntry={true}
-          />
-          <TextField
-            autoFocus
-            style={[{backgroundColor: card}, styles.passwordTextField]}
-            value={password}
-            onChangeText={_onPasswordFieldChange}
-            hasMargin
-            placeholder="Password"
-            secureTextEntry={true}
-          />
-        </View>
-        <Button isFullWidth onPress={_onNextButtonPressed}>
-          <Text isBold>Next</Text>
-        </Button>
-        <Button
-          isFullWidth
-          isTransparent
-          onPress={_onForgotPasswordButtonPressed}
-          style={styles.forgotPasswordButton}>
-          <Text>Forgot Password</Text>
-        </Button>
-      </ScrollView>
-    </SafeAreaView>
+    <ImageBackground
+      source={require('../../../assets/app/background_login.png')}
+      resizeMode="cover"
+      style={styles.backgroundContainer}>
+      <SafeAreaView style={styles.root}>
+        <ScrollView contentContainerStyle={styles.contentContainer}>
+          <View style={styles.formContainer}>
+            <Text isBold isHeadingTitle isWhite style={styles.title}>
+              Log In
+            </Text>
+            <Input
+              label="Username"
+              labelStyle={{color: 'white'}}
+              placeholder="Enter your username"
+              placeholderTextColor="white"
+              inputStyle={{color: 'white'}}
+              rightIcon={{
+                type: 'ionicon',
+                name: 'person-circle-outline',
+                color: 'white',
+              }}
+              value={email}
+              onChangeText={_onEmailFieldChange}
+              autoCompleteType={email}
+              containerStyle={styles.inputStyle}
+              inputContainerStyle={styles.inputContainerStyle}
+            />
+            <Input
+              label="Password"
+              labelStyle={{color: 'white'}}
+              placeholder="Enter your password"
+              placeholderTextColor="white"
+              inputStyle={{color: 'white'}}
+              rightIcon={{type: 'ionicon', name: 'key', color: 'white'}}
+              value={password}
+              onChangeText={_onPasswordFieldChange}
+              autoCompleteType={password}
+              secureTextEntry={true}
+              inputContainerStyle={styles.inputContainerStyle}
+            />
+            <Text
+              isWhite
+              onPress={_onForgotPasswordButtonPressed}
+              style={styles.forgotPasswordButton}>
+              Forgot Password
+            </Text>
+          </View>
+          <Button
+            isFullWidth
+            onPress={_onNextButtonPressed}
+            style={styles.loginButton}>
+            <Text isBold isWhite>
+              Login
+            </Text>
+          </Button>
+          <Button
+            isFullWidth
+            isTransparent
+            onPress={_onForgotPasswordButtonPressed}
+            style={styles.signInButton}>
+            <Text isBold isWhite>
+              Sign Up
+            </Text>
+          </Button>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 

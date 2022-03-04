@@ -17,7 +17,7 @@ const Authentication: React.FC<AuthenticationProps> = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground
+      <ImageBackground 
         source={require('../../../assets/app/background_1.png')}
         resizeMode="cover"
         style={styles.backgroundContainer}>

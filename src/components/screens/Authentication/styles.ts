@@ -3,10 +3,10 @@ export default StyleSheet.create({
   container: {
     flex: 1,
   },
-  backgroundContainer:{
-    flex:1,
+  backgroundContainer: {
+    flex: 1,
     alignItems: 'center',
-    justifyContent:'center',
+    justifyContent: 'center',
   },
   appIcon: {
     width: '70%',
@@ -17,7 +17,7 @@ export default StyleSheet.create({
     paddingBottom: 35,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
   },
   introductionText: {
     marginTop: 30,
@@ -25,14 +25,14 @@ export default StyleSheet.create({
   },
   iconsContainer: {
     marginTop: 30,
-    justifyContent:'center',
-    flexDirection:'row', 
+    justifyContent: 'center',
+    flexDirection: 'row',
   },
-  button:{
+  button: {
     borderWidth: 3,
     borderColor: 'white',
-    borderRadius:60,
-    backgroundColor: "transparent",
+    borderRadius: 60,
+    backgroundColor: 'transparent',
     paddingTop: 10,
     paddingBottom: 13,
     margin: 10,

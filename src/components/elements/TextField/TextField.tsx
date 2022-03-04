@@ -17,7 +17,7 @@ interface OwnProps {
   hasMargin?: boolean;
 }
 
-type TextFieldProps = OwnProps & TextInputProps;
+type TextFieldProps = OwnProps & TextInputProps; 
 
 const TextField: React.FC<TextFieldProps> = ({
   leftIcon,
