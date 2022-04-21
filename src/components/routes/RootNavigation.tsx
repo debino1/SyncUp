@@ -27,10 +27,7 @@ const RootNavigation = () => {
   const {theme} = useContext(ThemeContext);
   const {userToken} = useContext(AuthContext);
   const flex = 1;
-  const rootContainerBackgroundColor =
-    theme === 'light'
-      ? lightTheme.colors.background
-      : darkTheme.colors.background;
+  const rootContainerBackgroundColor = darkTheme.colors.background;
   const screenOptions =
     Platform.OS === 'ios'
       ? {
@@ -44,11 +41,7 @@ const RootNavigation = () => {
     <NavigationContainer theme={theme === 'light' ? lightTheme : darkTheme}>
       <View style={{flex, backgroundColor: rootContainerBackgroundColor}}>
         <StatusBar
-          backgroundColor={
-            theme === 'light'
-              ? lightTheme.colors.background
-              : darkTheme.colors.background
-          }
+          backgroundColor={darkTheme.colors.background}
           barStyle={theme === 'light' ? 'dark-content' : 'light-content'}
         />
         <RootStack.Navigator mode="modal" screenOptions={screenOptions}>

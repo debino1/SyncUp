@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Carousel, Section, Card} from '@src/components/elements';
-import {Dimensions} from 'react-native';
-import {mockPlaces, Place} from '@src/data/mock-places';
-import PlaceCardInfo from '@src/components/common/PlaceCardInfo';
+import {Section, Container} from '@src/components/elements';
+import {mockRemarkablePlace, Place} from '@src/data/mock-places';
+import PlaceListItem from '@src/components/common/PlaceListItem';
+import styles from './styles';
 
 type HotDealsProps = {};
 
@@ -14,33 +14,16 @@ const HotDeals: React.FC<HotDealsProps> = () => {
     navigation.navigate('PlaceListScreen', {title: 'Hot Deals'});
   };
 
-  const _onPlaceItemPressed = () => {
-    navigation.navigate('PlaceDetailsScreen');
-  };
-
   return (
     <Section
-      title="Hot Deals Around You"
-      actionButtonText="View more"
+      title="Popular Rooms"
+      actionButtonText="View All"
       onButtonActionPressed={_onButtonActionPressed}>
-      <Carousel
-        data={mockPlaces}
-        itemWidth={Dimensions.get('window').width / 2 - 15}
-        renderContent={(item: Place, index, parallaxProps) => {
-          const {image, title, subTitle} = item;
-          return (
-            <Card
-              coverImage={image}
-              isSmallCover
-              title={title}
-              subTitle={subTitle}
-              parallaxProps={parallaxProps}
-              onPress={_onPlaceItemPressed}>
-              <PlaceCardInfo data={item} />
-            </Card>
-          );
-        }}
-      />
+      <Container style={styles.tabContent}>
+        {mockRemarkablePlace.featured.map((item: Place) => {
+          return <PlaceListItem key={item.id} data={item} />;
+        })}
+      </Container>
     </Section>
   );
 };

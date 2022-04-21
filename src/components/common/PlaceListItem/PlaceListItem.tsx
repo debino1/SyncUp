@@ -4,7 +4,6 @@ import {useNavigation} from '@react-navigation/native';
 import {Container, Text, Touchable} from '@src/components/elements';
 import {Place} from '@src/data/mock-places';
 import styles from './styles';
-import PlaceCardInfo from '../PlaceCardInfo';
 
 type PlaceListItemProps = {
   data: Place;
@@ -27,7 +26,6 @@ const PlaceListItem: React.FC<PlaceListItemProps> = ({data}) => {
             <Text style={styles.placeTitle}>{title}</Text>
             <Text style={styles.placeSubTitle}>{subTitle}</Text>
           </View>
-          <PlaceCardInfo data={data} />
         </View>
       </Container>
     </Touchable>

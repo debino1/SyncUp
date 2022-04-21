@@ -7,9 +7,9 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   image: {
-    width: 70,
-    height: 70,
-    borderRadius: 10,
+    width: 50,
+    height: 50,
+    borderRadius: 5,
     marginRight: 10,
   },
   placeInfoContainer: {
@@ -22,7 +22,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
   placeSubTitle: {
-    marginTop: 2,
+    marginTop: 5,
     marginBottom: 10,
     fontSize: 12,
   },

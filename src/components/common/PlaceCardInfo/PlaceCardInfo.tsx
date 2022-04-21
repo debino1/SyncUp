@@ -31,11 +31,6 @@ const PlaceCardInfo: React.FC<PlaceCardInfoProps> = ({
       <View style={styles.buttonContainer}>
         <Button
           style={[styles.button, {backgroundColor: border}]}
-          icon={<Icon isPrimary name="map-marker-alt" size={10} />}>
-          <Text isPrimary style={styles.buttonText}>{`${distance}m`}</Text>
-        </Button>
-        <Button
-          style={[styles.button, {backgroundColor: border}]}
           icon={<Icon isPrimary name="clock" size={10} />}>
           <Text isPrimary style={styles.buttonText}>{`${time}'`}</Text>
         </Button>

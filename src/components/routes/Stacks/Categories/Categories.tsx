@@ -9,8 +9,8 @@ import Checkout from '@src/components/routes/Stacks/CheckoutStack';
 import styles from './styles';
 import {ScreenNavigationProps} from '../types';
 
-type HomeStackProps = {} & ScreenNavigationProps;
-type HomeStackParamList = {
+type CategoriesProps = {} & ScreenNavigationProps;
+type CategoriesParamList = {
   HomeScreen: undefined;
   PlaceDetailsScreen: undefined;
   CheckoutScreen: undefined;
@@ -18,9 +18,9 @@ type HomeStackParamList = {
     title?: string;
   };
 };
-const Stack = createStackNavigator<HomeStackParamList>();
+const Stack = createStackNavigator<CategoriesParamList>();
 
-const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
+const Categories: React.FC<CategoriesProps> = ({navigation}) => {
   const _renderExploreHeaderTitle = () => {
     return (
       <View style={styles.headerLeftContainer}>
@@ -43,7 +43,7 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
         size={22}
         isPrimary
         useIonicons
-        onPress={() => navigation.navigate('Categories')}
+        onPress={() => navigation.navigate('Notifications')}
       />
     );
   };
@@ -102,4 +102,4 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
   );
 };
 
-export default HomeStack;
+export default Categories;

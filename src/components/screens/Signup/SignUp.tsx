@@ -41,10 +41,6 @@ const Login: React.FC<LoginProps> = () => {
     navigation.navigate('ForgotPasswordScreen');
   };
 
-  const _onSignUpPressed = () => {
-    navigation.navigate('SignUpScreen');
-  };
-
   return (
     <ImageBackground
       source={require('../../../assets/app/background_login.png')}
@@ -75,7 +71,7 @@ const Login: React.FC<LoginProps> = () => {
             />
             <Input
               label="Password"
-              labelStyle={{color: 'white'}} 
+              labelStyle={{color: 'white'}}
               placeholder="Enter your password"
               placeholderTextColor="white"
               inputStyle={{color: 'white'}}
@@ -104,7 +100,7 @@ const Login: React.FC<LoginProps> = () => {
           <Button
             isFullWidth
             isTransparent
-            onPress={_onSignUpPressed}
+            onPress={_onForgotPasswordButtonPressed}
             style={styles.signInButton}>
             <Text isBold isWhite>
               Sign Up
