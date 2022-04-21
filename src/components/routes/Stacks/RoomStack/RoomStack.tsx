@@ -2,15 +2,15 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Button, Icon, Text} from '@src/components/elements';
-import Home from '@src/components/screens/Home';
+import Rooms from '@src/components/screens/Rooms';
 import PlaceDetails from '@src/components/screens/PlaceDetails';
 import PlaceList from '@src/components/screens/PlaceList';
 import Checkout from '@src/components/routes/Stacks/CheckoutStack';
 import styles from './styles';
 import {ScreenNavigationProps} from '../types';
 
-type HomeStackProps = {} & ScreenNavigationProps;
-type HomeStackParamList = {
+type RoomStackProps = {} & ScreenNavigationProps;
+type RoomStackParamList = {
   HomeScreen: undefined;
   PlaceDetailsScreen: undefined;
   CheckoutScreen: undefined;
@@ -18,13 +18,20 @@ type HomeStackParamList = {
     title?: string;
   };
 };
-const Stack = createStackNavigator<HomeStackParamList>();
+const Stack = createStackNavigator<RoomStackParamList>();
 
-const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
+const RoomStack: React.FC<RoomStackProps> = ({navigation}) => {
   const _renderExploreHeaderTitle = () => {
     return (
       <View style={styles.headerLeftContainer}>
-        <Text style={styles.headerTitle}>Feed</Text>
+        <Icon
+          name="chevron-back"
+          size={30}
+          useIonicons
+          style={styles.locationIcon}
+          isPrimary
+        />
+        <Text style={styles.headerTitle}>All Rooms</Text>
       </View>
     );
   };
@@ -58,13 +65,13 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
           return {
             headerTitle: _renderExploreHeaderTitle,
             title: 'Explore',
-            headerTitleAlign: 'left',
+            headerTitleAlign: 'left', 
             headerRight: _renderExploreHeaderRight,
             headerRightContainerStyle: styles.headerRightContainer,
           };
         }}
-        name="HomeScreen"
-        component={Home}
+        name="RoomScreen"
+        component={Rooms}
       />
       <Stack.Screen
         options={() => {
@@ -95,4 +102,4 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
   );
 };
 
-export default HomeStack;
+export default RoomStack;

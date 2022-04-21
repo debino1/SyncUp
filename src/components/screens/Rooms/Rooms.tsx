@@ -2,15 +2,13 @@ import * as React from 'react';
 import {useFocusEffect, useScrollToTop} from '@react-navigation/native';
 import {ScrollView, SafeAreaView, InteractionManager} from 'react-native';
 import {SearchBar, LoadingIndicator} from '@src/components/elements';
+import RecommendedPlaces from './RecommendedPlaces';
 import HotDeals from './HotDeals';
 import AppReviewModal from '@src/components/common/AppReviewModal';
-import PopularCategories from './PopularCategories';
-import PopularPlaces from './PopularPlaces';
-import FeedButtons from './FeedButtons';
 
-type HomeProps = {};
+type RoomsProps = {};
 
-const Home: React.FC<HomeProps> = () => {
+const Rooms: React.FC<RoomsProps> = () => {
   const [isNavigationTransitionFinished, setIsNavigationTransitionFinished] =
     React.useState(false);
   const scrollViewRef = React.useRef(null);
@@ -32,9 +30,7 @@ const Home: React.FC<HomeProps> = () => {
         <SearchBar placeholder="Find places, dishes, restaurants..." />
         {isNavigationTransitionFinished ? (
           <>
-            <FeedButtons />
-            <PopularCategories />
-            <PopularPlaces />
+            <RecommendedPlaces />
             <HotDeals />
           </>
         ) : (
@@ -46,4 +42,4 @@ const Home: React.FC<HomeProps> = () => {
   );
 };
 
-export default Home;
+export default Rooms;

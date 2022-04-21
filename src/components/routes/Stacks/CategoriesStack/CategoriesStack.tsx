@@ -9,7 +9,7 @@ import Checkout from '@src/components/routes/Stacks/CheckoutStack';
 import styles from './styles';
 import {ScreenNavigationProps} from '../types';
 
-type CategoriesProps = {} & ScreenNavigationProps;
+type CategoriesStackProps = {} & ScreenNavigationProps;
 type CategoriesParamList = {
   HomeScreen: undefined;
   PlaceDetailsScreen: undefined;
@@ -20,7 +20,7 @@ type CategoriesParamList = {
 };
 const Stack = createStackNavigator<CategoriesParamList>();
 
-const Categories: React.FC<CategoriesProps> = ({navigation}) => {
+const CategoriesStack: React.FC<CategoriesStackProps> = ({navigation}) => {
   const _renderExploreHeaderTitle = () => {
     return (
       <View style={styles.headerLeftContainer}>
@@ -31,7 +31,7 @@ const Categories: React.FC<CategoriesProps> = ({navigation}) => {
           style={styles.locationIcon}
           isPrimary
         />
-        <Text style={styles.headerTitle}>All Rooms</Text>
+        <Text style={styles.headerTitle}>Categories</Text>
       </View>
     );
   };
@@ -102,4 +102,4 @@ const Categories: React.FC<CategoriesProps> = ({navigation}) => {
   );
 };
 
-export default Categories;
+export default CategoriesStack;
